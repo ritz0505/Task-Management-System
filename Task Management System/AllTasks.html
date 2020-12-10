@@ -1,0 +1,85 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <h2 align="center">Tasks List</h2>
+  <style>
+    #showBoardtable {
+    font-family: Arial;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #showBoardtable td, #review th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #showBoardtable tr:nth-child(even){background-color: lightgrey;}
+
+  #showBoardtable tr:hover {background-color: grey;}
+
+  #showBoardtable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #138D75;
+    color: white;
+  }
+
+    .mainpagedesign{
+      text-align: center;
+      background-color: #B2BABB;
+      margin-top: 50px;
+    }
+  </style>
+  <script>
+
+  </script>
+</head>
+<body class="mainpagedesign">
+<form >
+  <input type="hidden" id="creater_address" name="creater_address" value="{{creater_address}}">
+  <table id="showBoardtable">
+    <tr>
+    <th>TaskBoard Name</th>
+    <th>Task Name</th>
+    <th>Assigned to</th>
+    <th>Due Date</th>
+    <th>Completed On</th>
+    <th>Completed At</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    </tr>
+      <ul>
+        {% for i in result %}
+        <tr><td><a href="/TaskEditLink?button=true&id=Edit&creater_address={{creater_address}}&taskboard_name={{i.taskboard_name}}&tasklist_name={{i.tasklist_name}}&task_assigned_to={{i.task_assigned_to}}&task_due_date={{i.task_due_date}}">{{i.taskboard_name}}</a></td>
+        <td>{{i.tasklist_name}}</td>
+
+        <!--{% if i.tasklist_name == highlightvalue%}
+        <td style="background-color:red">{{i.tasklist_name}}</td>
+        {% else %}
+        <td>{{i.tasklist_name}}</td>
+        {% endif %}-->
+        <td >{{i.task_assigned_to}}</td>
+        <td>{{i.task_due_date}}</td>
+        <td>{{i.date_completion}}</td>
+        <td>{{i.time_completion}}</td>
+        {% if i.task_status != 'Completed' %}
+          <td><input type="checkbox" name="compId" id="compId" onclick="location.href='/Status?tasklist_name={{i.tasklist_name}}&taskboard_name={{i.taskboard_name}}'">
+            {% elif i.task_status == 'Completed' %}
+            <td><input type="checkbox" name="compId" id="compId" disabled>
+            {% endif %}
+      </tr>
+
+        {% endfor %}
+
+      </ul>
+
+
+  </table>
+  <br><br/>
+  <input type="submit" name="Back" value="Back" id="Back" formaction="/ShowTaskboard"></th>
+</form>
+</body>
+</html>

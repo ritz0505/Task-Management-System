@@ -1,0 +1,66 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <h2>TaskBoard Screen</h2>
+  <style>
+
+  #showBoardtable {
+  font-family: Arial;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#showBoardtable td, #review th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#showBoardtable tr:nth-child(even){background-color: lightgrey;}
+
+#showBoardtable tr:hover {background-color: grey;}
+
+#showBoardtable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #138D75;
+  color: white;
+}
+
+.mainpagedesign{
+  text-align: center;
+  background-color: #B2BABB;
+  margin-top: 50px;
+
+}
+  </style>
+  <script>
+  </script>
+</head>
+<body class="mainpagedesign">
+  <form >
+  <div id="showBoard">
+  <table id=showBoardtable>
+  <tr>
+  <th>TaskBoard Name</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  </tr>
+  <ul>
+    {% for i in result %}
+    <tr><td>{{i.taskboard_name}}</td>
+    <td><a href="/ClickTaskboard?button=true&id=viewButton&taskboard_name={{i.taskboard_name}}&creater_address={{i.creater_address}}">Add Member</a></button></td>
+    <td><a href="/fetchTask?button=true&id=showtask&taskboard_name={{i.taskboard_name}}&creater_address={{i.creater_address}}">View Taskboard</a></button></td>
+    <td><a href="/AddFetchTask?button=true&id=addTask&taskboard_name={{i.taskboard_name}}&creater_address={{i.creater_address}}">Add Task</a></button></td>
+    </tr>
+    {% endfor %}
+  </ul>
+  </table>
+  <br><br/>
+  <br/>
+  <input type="submit" name="Back" value="Back" id="Back" formaction="/"></th>
+  </div>
+  </form>
+</body>
+</html>

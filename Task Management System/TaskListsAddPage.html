@@ -1,0 +1,54 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<h2 align="center">Tasks List</h2>
+<style>
+  .mainpagedesign{
+    text-align: center;
+    background-color: #B2BABB;
+    margin-top: 50px;
+  }
+</style>
+<script>
+</script>
+</head>
+<body class="mainpagedesign">
+  <form action="/AddFetchTask" method="get" class="design">
+    <div align="center" class="edit">
+    <table>
+    <h2>Please Add Task here/....</h2>
+      <tr>
+          <!--<th><label for="boardname">TaskBoard Name:</label></th>-->
+          <th><input type="hidden" name="boardname" id="boardname" value={{taskboard_name}} onkeydown="return false"></th>
+          <input type="hidden"  name="boardname" id="boardname"  value="{{taskboard_name}}">
+        <input type="hidden" id="creater_address" name="creater_address" value="{{creater_address}}">
+      </tr>
+      <tr>
+        <th><label for="taskname">Task Name:</label></th>
+        <th><input type="text" name="taskname" id="taskname" placeholder="taskname" ></th>
+      </tr>
+      <tr>
+        <th><label for="assignedto">Assigned To:</label></th>
+        <th><select id="membername" name="membername"  value=selected>
+        <option></option>
+        <!--<th><input type="text" name="assignedto" id="assignedto" placeholder="{{assignedto}}" ></th>-->
+        {% for i in ab %}
+        <option >{{i.email_address}}</option>
+        {% endfor %}
+        </select></th>
+      </tr>
+      <tr>
+        <th><label for="duedate">Due Date:</label></th>
+        <th><input type="date" name="duedate" id="duedate" placeholder="{{duedate}}"></th>
+      </tr>
+
+      <tr></tr>
+      <tr></tr>
+
+      </table>
+      <th><button type="submit" name="add" value="add" id="add" formaction="/AddFetchTask?button=true&taskboard_name={{taskboard_name}}&creater_address={{creater_address}}">Add Task</button>
+      <button type="submit" name="Cancel" value="Cancel" id="Cancel" formaction="/ShowTaskboard" >Cancel</button></th>
+    </div>
+  </form>
+</body>
+</html>

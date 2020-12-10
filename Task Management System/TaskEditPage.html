@@ -1,0 +1,52 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<style>
+  .mainpagedesign{
+    text-align: center;
+    background-color: #B2BABB;
+    margin-top: 50px;
+  }
+</style>
+<script>
+</script>
+</head>
+<body class="mainpagedesign">
+  <form action="/EditTaskList" method="get" class="design">
+    <div align="center" class="edit">
+    <table>
+    <h2>Task List Edit Page</h2>
+      <tr>
+          <th><label for="boardname">TaskBoard Name:</label></th>
+          <th><input type="text" name="boardnamenew" id="boardnamenew" value={{taskboard_name}} ></th>
+          <input type="hidden"  name="boardname" id="boardname"  value="{{taskboard_name}}">
+        <input type="hidden" id="creater_address" name="creater_address" value="{{creater_address}}">
+      </tr>
+      <tr>
+        <th><label for="taskname">Task Name:</label></th>
+        <th><input type="text" name="tasknamenew" id="tasknamenew"  value="{{tasklist_name}}" ></th>
+        <th><input type="hidden" name="taskname" id="taskname"  value="{{tasklist_name}}" ></th>
+      </tr>
+      <tr>
+        <th><label for="assignedto">Assigned To:</label></th>
+        <th><input type="text" name="membernamenew" id="membernamenew" value="{{task_assigned_to}}" ></th>
+          <th><input type="hidden" name="membername" id="membername" value="{{task_assigned_to}}" ></th>
+      </tr>
+      <tr>
+        <th><label for="duedate">Due Date:</label></th>
+        <th><input type="date" name="duedatenew" id="duedatenew" placeholder="{{duedate}}" value="{{task_due_date}}"></th>
+        <th><input type="hidden" name="duedate" id="duedate" placeholder="{{duedate}}" value="{{task_due_date}}"></th>
+      </tr>
+
+      <tr></tr>
+      <tr></tr>
+
+      </table>
+      <th><button type="submit" name="EditTask" value="EditTask" id="EditTask">Edit Task</button>
+      <button type="submit" name="DeleteTask" value="DeleteTask" id="DeleteTask" formaction="/DeleteTaskClass">Delete Task</button>
+    <button type="submit" name="back" value="back" id="back" formaction="/ShowTaskboard">Go Back</button></th>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <h2>TaskBoard Screen</h2>
+
+  <style>
+  </style>
+  <script>
+    function addBoard() {
+   document.getElementById('addview').style.display = "";
+  }
+  </script>
+  </head>
+<body>
+<form action="ShowTaskboard">
+<div>
+<th><button type="submit" name="viewTaskboard" id="viewTaskboard" formaction="/ShowTaskboard" >View TaskBoard</button>
+<button type="button" name="addTaskBoard" id="addTaskBoard" onclick="addBoard()">Add TaskBoard</button></th>
+</div>
+</form>
+
+<form action="/AddTaskBoard">
+<div style="display:none;" id="addview">
+<th><label for="taskboard_name">Task Board Title:</label>
+<input type="text" id ="taskboard_name" name="taskboard_name" style="width:50%;height:10%" placeholder="Enter the Task Board Name" required></th><br/><br/>
+<th><button type="submit" name="submit" id="submit" formaction="/AddTaskBoard">Submit</button></th>
+</div>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login/Logout page for EV database</title>
+
+  <style>
+    .mainpagedesign{
+      text-align: center;
+      background-color: #B2BABB;
+      margin-top: 50px;
+
+    }
+  </style>
+  </head>
+  <!-----html code to get the login/logout page of the database --------------->
+  <body class="mainpagedesign">
+    <form action="/MainPage">
+    {% if user %}
+    <p>Hi {{user}}</p>
+    {% else %}
+    <p><h1>Please Login to Taskboard screen</h1></p>
+    {% endif %}
+    <p><h3>To proceed please {{ url_string}} <a href='{{ url }}'>here</a></h3></p>
+    </form>
+
+  </body>
+</html>
